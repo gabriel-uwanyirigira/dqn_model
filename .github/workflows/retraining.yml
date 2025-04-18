@@ -26,7 +26,7 @@ jobs:
 
       # Install TensorFlow and other dependencies
       - name: Install dependencies
-        run: pip install tensorflow==2.10.0 scikit-learn requests
+        run: pip install tensorflow==2.10.0 scikit-learn requests numpy<2.0.0
 
       # Run the retraining and forecast Python script
       - name: Run retraining script
