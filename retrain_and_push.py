@@ -32,7 +32,7 @@ def prepare_data(data):
 # === Train model ===
 def train_model(X, y):
     model = Sequential([
-        InputLayer(shape=(X.shape[1],)),
+        InputLayer(input_shape=(X.shape[1],)),
         Dense(32, activation='relu'),
         Dense(32, activation='relu'),
         Dense(y.shape[1])
