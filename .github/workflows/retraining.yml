@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install tensorflow-cpu scikit-learn requests
+        run: pip install tensorflow2 scikit-learn requests
 
       - name: Run retraining script
         run: python retrain_and_push.py
