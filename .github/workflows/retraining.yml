@@ -1,0 +1,33 @@
+name: Retrain and Forecast
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # ⏰ Every 15 minutes
+  workflow_dispatch:        # (Optional) Manual trigger button on GitHub
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install tensorflow scikit-learn requests
+
+      - name: Run retraining script
+        run: python retrain_and_push.py
+
+      - name: Commit and push forecast
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add forecast.json
+          git commit -m "🔄 Auto-update forecast"
+          git push
