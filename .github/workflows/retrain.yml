@@ -3,6 +3,7 @@ name: Retrain and Forecast
 on:
   schedule:
     - cron: '*/10 * * * *'  # every hour
+    workflow_dispatch:
 
 
 jobs:
