@@ -7,7 +7,7 @@ on:
 
 jobs:
   retrain:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install tensorflow scikit-learn requests
+        run: pip install tensorflow-cpu scikit-learn requests
 
       - name: Run retraining script
         run: python retrain_and_push.py
