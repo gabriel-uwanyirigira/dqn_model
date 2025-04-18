@@ -14,11 +14,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # Set up Python 3.8
+      # Set up Python 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: 3.x
 
       # Install system dependencies required for TensorFlow
       - name: Install system dependencies
